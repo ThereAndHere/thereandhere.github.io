@@ -1,0 +1,20 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            There
+                  And
+                  Here
+tagline:          'TZs blog'
+description:      'Keep moving for the better life...'
+url:              http://blog.there4ndhere.tk
+baseurl:          /
+
+
+paginate:         5
+
