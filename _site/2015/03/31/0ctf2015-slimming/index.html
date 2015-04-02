@@ -11,7 +11,7 @@
 
   <title>
     
-      There And Here &middot; TZs blog
+      0ctf-2015 slimming Writeup &middot; There And Here
     
   </title>
 
@@ -44,7 +44,7 @@
     </div>
 
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item active" href="/">Home</a>
+      <a class="sidebar-nav-item" href="/">Home</a>
 
       
 
@@ -75,18 +75,10 @@
 
 
     <div class="content container">
-      <div class="posts">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2015/03/31/0ctf2015-slimming/">
-        0ctf-2015 slimming Writeup
-      </a>
-    </h1>
-
-    <span class="post-date">31 Mar 2015</span>
-
-    <blockquote>
+      <div class="post">
+  <h1 class="post-title">0ctf-2015 slimming Writeup</h1>
+  <span class="post-date">31 Mar 2015</span>
+  <blockquote>
 <p>Foodie has eaten so much delicious food and decide to slim now .</p>
 </blockquote>
 
@@ -174,65 +166,24 @@
 <p>解密之后就得到了一个elf文件，丢ida里就可以看到明文flag了，是一个字符一个字符比较的
 flag:<strong>0ctf{AdD_15t_cHar_t0_7h3_eNd_wHEh_3xCept10n}</strong></p>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2015/01/25/insertion-sort/">
-        插入排序算法
-      </a>
-    </h1>
-
-    <span class="post-date">25 Jan 2015</span>
-
-    <h3>伪代码</h3>
-<div class="highlight"><pre><code class="language-text" data-lang="text">INSERTION-SORT(A)
-    for j = 2 to A.length
-        key = A[j]
-        i = j - 1
-        //把A[j]插入到A[1..j-1]
-        while i &gt; 0 and A[i] &gt; key
-            A[i + 1] = A[i]
-            i = i - 1
-        A[i + 1] = key
-</code></pre></div>
-<h3>C实现</h3>
-<div class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">void</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">key</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
-        <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">key</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-            <span class="n">i</span> <span class="o">--</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3>循环不变式</h3>
-
-<ul>
-<li><strong>初始化</strong>:迭代开始前子数组仅由单个元素组成，明显是排序好的，循环不变式成立</li>
-<li><strong>保持</strong>:如果迭代前子数组A[i..j-1]是排序好的，A[j]会被插入到合适的位置使下次迭代增加j将保持循环不变式</li>
-<li><strong>终止</strong>:循环终止条件是j &gt; A.length = n，所以我们有数组A[1..n]已排好序</li>
-</ul>
-
-  </div>
-  
 </div>
 
-<div class="pagination">
-  
-    <span class="pagination-item older">Older</span>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/01/25/insertion-sort/">
+            插入排序算法
+            <small>25 Jan 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
 </div>
+
     </div>
 
   </body>
