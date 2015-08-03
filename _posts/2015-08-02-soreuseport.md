@@ -1,6 +1,6 @@
 ---
 layout:post
-titls:SO_REUSERPORT负载均衡
+title:SO_REUSERPORT负载均衡
 ---
 
 在kernel 3.9中，添加了SO_REUSEPORT选项，支持多个进程或线程绑定在同一个IP和端口上，可以对端口流量进行负载均衡，提升server性能。本文以UDP为例，分析该选项查找socket的算法。
