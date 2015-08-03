@@ -6,6 +6,7 @@ title: SO_REUSERPORT负载均衡
 在kernel 3.9中，添加了SO_REUSEPORT选项，支持多个进程或线程绑定在同一个IP和端口上，可以对端口流量进行负载均衡，提升server性能。本文以UDP为例，分析该选项查找socket的算法。
 
 UDP中查找socket的主要函数为 __udp4_lib_lookup，在就之前的版本中，该函数的主要代码如下
+
 ```cpp
 result = NULL;
 badness = -1;
@@ -18,8 +19,10 @@ sk_nulls_for_each_rcu(sk, node, &hslot->head) {
 	}
 }
 ```
+
 该函数对socket链表进行遍历，找到匹配ip地址和端口的socket并返回
 加入SO_REUSEPORT选项后，代码如下
+
 ```cpp
 result = NULL;
 badness = 0;
@@ -43,6 +46,7 @@ sk_nulls_for_each_rcu(sk, node, &hslot->head) {
     }
 }
 ```
+
 在匹配到合适的目的ip和目的端口后，又加入了源ip和源端口计算hash，通过hash确定socket的位置。
 这样的优点在于
 1. 对于同一个源ip和源端口发出的数据，可以保证被同一个socket接受
@@ -53,6 +57,7 @@ sk_nulls_for_each_rcu(sk, node, &hslot->head) {
 2. 网上有人指出在高负荷的情况会导致负载不均衡，不过我自己测试中并没有发生这种现象。
 
 一个负载均衡udp服务的实例
+
 ```cpp
 #include <sys/types.h>
 #include <string.h>
