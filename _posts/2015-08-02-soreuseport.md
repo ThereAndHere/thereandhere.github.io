@@ -5,7 +5,7 @@ title: SO_REUSERPORT负载均衡
 
 在kernel 3.9中，添加了SO_REUSEPORT选项，支持多个进程或线程绑定在同一个IP和端口上，可以对端口流量进行负载均衡，提升server性能。本文以UDP为例，分析该选项查找socket的算法。
 
-UDP中查找socket的主要函数为 __udp4_lib_lookup，在就之前的版本中，该函数的主要代码如下
+UDP中查找socket的主要函数为 \_\_udp4\_lib_lookup，在就之前的版本中，该函数的主要代码如下
 
 ```cpp
 result = NULL;
@@ -21,7 +21,7 @@ sk_nulls_for_each_rcu(sk, node, &hslot->head) {
 ```
 
 该函数对socket链表进行遍历，找到匹配ip地址和端口的socket并返回
-加入SO_REUSEPORT选项后，代码如下
+加入SO\_REUSEPORT选项后，代码如下
 
 ```cpp
 result = NULL;
