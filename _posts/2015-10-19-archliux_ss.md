@@ -69,3 +69,8 @@ nohup ssserver > log &
 * rc4-md5
 * salsa20
 * seed-cfb
+
+要使用chacha20和salsa20的话需要安装libsodium  
+```bash
+pacman -S libsodium
+```
