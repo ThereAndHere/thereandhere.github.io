@@ -27,7 +27,7 @@ pacman -S shadowsocks
 }    
 ```
 
-作为服务端的话，local_address和local_port不用管他，在server和server_port填上ip和端口，password设置密码，timeout设置超时时间，method设置加密方式，推荐适用ChaCha20，速度比较快，也可以使用默认的 aes-256-cfb。
+作为服务端的话，local\_address和local\_port不用管他，在server和server\_port填上ip和端口，password设置密码，timeout设置超时时间，method设置加密方式，推荐适用ChaCha20，速度比较快，也可以使用默认的 aes-256-cfb。
 
 然后在config的目录下运行服务
 
