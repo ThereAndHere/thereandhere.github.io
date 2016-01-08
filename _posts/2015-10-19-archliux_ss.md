@@ -5,12 +5,14 @@ title: ArchLinux 上使用shadowsocks服务
 
 ###服务端 
 
-安装shadowsocks    
+安装shadowsocks
+
 ```bash
 pacman -S shadowsocks
 ```
 
-创建一个配置文件config.json，在/etc/shadowsocks 目录下有个examle.json作为模板  
+创建一个配置文件config.json，在/etc/shadowsocks 目录下有个examle.json作为模板
+
 ```cpp
 {    
     "server":"my_server_ip", 
@@ -27,12 +29,14 @@ pacman -S shadowsocks
 
 作为服务端的话，local_address和local_port不用管他，在server和server_port填上ip和端口，password设置密码，timeout设置超时时间，method设置加密方式，推荐适用ChaCha20，速度比较快，也可以使用默认的 aes-256-cfb。
 
-然后在config的目录下运行服务  
+然后在config的目录下运行服务
+
 ```bash
 ssserver
 ```
 
-如果要在后台运行  
+如果要在后台运行
+
 ```bash
 nohup ssserver > log &
 ```
