@@ -13,7 +13,7 @@ pacman -S shadowsocks
 
 创建一个配置文件config.json，在/etc/shadowsocks 目录下有个examle.json作为模板
 
-```cpp
+```
 {    
     "server":"my_server_ip", 
     "server_port":8388,
